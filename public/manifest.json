@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "START",
+  "description": "test",
+  "version": "1.0",
+  "action": {
+	"default_popup": "popup.html"
+	},
+  "icons": {
+    "16": "/img/icon16.png",
+    "64": "/img/icon64.png",
+    "128": "/img/icon128.png"
+  },
+  
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  
+  "permissions":["activeTab", "scripting", "webRequest", "dns", "contextMenus", "downloads", "downloads.shelf", "nativeMessaging"],
+
+  "background": {
+    "service_worker": "background.js"
+  }
+
+}
