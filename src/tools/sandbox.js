@@ -1,11 +1,11 @@
 
 const sendFileTOSBX = async (inputSBX) => {
-    console.log("я тут")
+    // console.log("я тут")
     const API_KEY = 'aCAQQr7SDohjQS8d-J2I8lhvXb-gX9SXI-pbTnbJX5qi0dnNPCeZf1F_g2Wl0skHlXnI7JepiumQX3UiZAYHpg';
 
     chrome.downloads.search({state: 'complete', limit: 1}, (results) =>  {
         if (results && results.length > 0) {
-            console.log("а теперь тут")
+            // console.log("а теперь тут")
         // Получаем путь к скачанному файлу
             const filePath = results[0].filename;
             const fileName = filePath.substring(filePath.lastIndexOf('/') + 1);
@@ -15,7 +15,7 @@ const sendFileTOSBX = async (inputSBX) => {
             const formData = new FormData();
             formData.append('file', new Blob([filePath], { type: 'application/octet-stream' }), fileName);
 
-            console.log("я тут пытаюсь файл отправить")
+            // console.log("я тут пытаюсь файл отправить")
             
     
         // Отправляем запрос на получение file_uri
@@ -46,7 +46,7 @@ const sendFileTOSBX = async (inputSBX) => {
                         "sandbox": {
                             "enabled": true,
                             "image_id": "win10-1803-x64",
-                            "analysis_duration": 60
+                            "analysis_duration": 120
                         }
                     }
                 })

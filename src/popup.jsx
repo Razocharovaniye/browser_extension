@@ -22,12 +22,12 @@ function App() {
 
 
 	useEffect(() => {
-		// checkUrl(inputRef, inputHTTPS, inputVT); // - done
-		// checkSSL(inputRef, inputSSL); //- do it output, done
+		checkUrl(inputRef, inputHTTPS, inputVT); // - done
+		checkSSL(inputRef, inputSSL); //- do it output, done
 		checkPerson(inputRef, inputPerson);
 
 		// sendFileTOSBX(); //- done, but отправка по кнопке работает!!!!! УРА !!!!
-		// checkHref(inputRef); //- done, but ниже по кнопке
+		//checkHref(inputRef); //- done, but ниже по кнопке
 
 		const checkHrefUrl = document.getElementById("check_url");
 		checkHrefUrl.addEventListener("click", async function () {
