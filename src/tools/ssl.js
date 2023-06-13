@@ -8,12 +8,12 @@ const checkSSL = async (inputRef, inputSSL) => {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '7ff658fcd0mshdcd9839e1a9e498p188ff5jsnb046c64d6067',
-            'X-RapidAPI-Host': 'ssl-certificate-checker2.p.rapidapi.com'
+            'X-RapidAPI-Key': 'd5ba603465msh685ac3b94966e4ep143f8djsn71ade5a05982',
+            'X-RapidAPI-Host': 'ssl-checker.p.rapidapi.com'
         }
     };
   
-    fetch(`https://ssl-certificate-checker2.p.rapidapi.com/ssl-certificate-checker/check?host=${domain}`, options)
+    fetch(`https://ssl-checker.p.rapidapi.com/check-ssl?source=${domain}`, options)
         .then(response => response.json())
         .then(response => {
             console.log(response);
