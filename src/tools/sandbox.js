@@ -5,7 +5,6 @@ const sendFileTOSBX = async (inputSBX) => {
 
     chrome.downloads.search({state: 'complete', limit: 1}, (results) =>  {
         if (results && results.length > 0) {
-            // console.log("а теперь тут")
         // Получаем путь к скачанному файлу
             const filePath = results[0].filename;
             const fileName = filePath.substring(filePath.lastIndexOf('/') + 1);
@@ -14,10 +13,7 @@ const sendFileTOSBX = async (inputSBX) => {
         // Создаем объект FormData и добавляем скачанный файл в него
             const formData = new FormData();
             formData.append('file', new Blob([filePath], { type: 'application/octet-stream' }), fileName);
-
-            // console.log("я тут пытаюсь файл отправить")
             
-    
         // Отправляем запрос на получение file_uri
             fetch("https://10.11.6.97/api/v1/storage/uploadScanFile", {
                 method: "POST",

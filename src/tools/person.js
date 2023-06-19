@@ -19,11 +19,9 @@ const checkPerson = (inputRef, inputPerson) => {
 
 
           // Список слов и фраз, которые могут указывать на запросы на личную информацию.
-          // Define a regular expression to match inputs or textareas that may contain personal information
           const regex = /(<input.*type=["']?(password|e-mail|email|tel|phone|number|date|passport|SSN|credit_card|CVV|CVC|login|hidden)["']?.*>)|(<textarea.*>)/ig;
           
                                     
-          // Function to check if any input or textarea on the page matches the regex
           const inputs = doc.getElementsByTagName('input');
           const textareas = doc.getElementsByTagName('textarea');
 

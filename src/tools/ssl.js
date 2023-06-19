@@ -1,4 +1,3 @@
-
 const checkSSL = async (inputRef, inputSSL) => {
 
     const tabs = await chrome.tabs.query({ currentWindow: true, active: true });
@@ -9,17 +8,17 @@ const checkSSL = async (inputRef, inputSSL) => {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': 'd5ba603465msh685ac3b94966e4ep143f8djsn71ade5a05982',
-            'X-RapidAPI-Host': 'ssl-checker.p.rapidapi.com'
+            'X-RapidAPI-Host': 'check-ssl.p.rapidapi.com'
         }
     };
   
-    fetch(`https://ssl-checker.p.rapidapi.com/check-ssl?source=${domain}`, options)
+    fetch(`https://check-ssl.p.rapidapi.com/sslcheck?domain=${domain}`, options)
         .then(response => response.json())
         .then(response => {
             console.log(response);
-            console.log(response.cipher.standardName, response.validFrom, response.validTo, response.expiresInDays, response.standardName);
+            console.log(response.certDetails.issuer, response.certDetails.validLeft, response.expiry);
 
-            inputSSL.current.value = `Protocol: ${response.cipher.standardName} \nwill expire in ${response.expiresInDays} days`;
+            inputSSL.current.value = `Protocol: ${response.certDetails.signatureTypeSN} \nwill expire in ${response.daysLeft} days`;
         })
         .catch(error => {
             console.error(error);
